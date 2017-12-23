@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Friend Finder - A new way to connect!</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+        crossorigin="anonymous">
+    <!--bootswatch theme-->
+    <link rel="stylesheet" href="https://bootswatch.com/3/darkly/bootstrap.min.css">
+    <!-- custom css link -->
+    <link rel="stylesheet" type="text/css" href="./assets/css/custom.css">
+    <!-- jquery link -->
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+        crossorigin="anonymous"></script>
+    <!-- axios link -->
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <!-- custom scripts -->
+    <script src="./assets/js/surveyQuestions.js"></script>
+</head>
+
+<body>
+    <!-- Modal -->
+    <div class="modal fade" id="ffModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title" id="myModalLabel">Meet your new bestest friend in the whole wide world!</h4>
+                </div>
+                <div id="newFriend" class="modal-body">
+                    <!-- friend will load here -->
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="mainContent jumbotron text-center">
+            <img class="img-responsive center-block" src="./assets/images/friendfinder.png" />
+            <hr>
+            <div class="row">
+                <div class="form-group">
+                    <label for="username">Name (required):</label>
+                    <input type="text" class="form-control text-center" id="username" placeholder="Type in your name here!">
+                </div>
+                <div class="form-group">
+                    <label for="userpic">Picture (required):</label>
+                    <input type="text" class="form-control text-center" id="userpic" placeholder="Give us a link to a picture of you!">
+                </div>
+            </div>
+            <div id="questionsDiv">
+                <p id="survQuestion"></p>
+                <div id="survAnswers" class="row">
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" class="inlineRadio" value="1"> 1 (strongly disagree)
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" class="inlineRadio" value="2"> 2
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" class="inlineRadio" value="3"> 3
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" class="inlineRadio" value="4"> 4
+                    </label>
+                    <label class="radio-inline">
+                        <input type="radio" name="inlineRadioOptions" class="inlineRadio" value="5"> 5 (strongly agree)
+                    </label>
+                </div>
+                <div class="row">
+                    <button type="button" id="btnSurvQuest" class="btn btn-default">Next Question</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
