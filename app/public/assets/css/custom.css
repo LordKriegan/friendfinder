@@ -5,3 +5,9 @@
 #btnSurvQuest {
 	margin-top: 10px;
 }
+
+.imgSize {
+	height: 500px;
+	width: 500px;
+	border-radius: 25px;
+}

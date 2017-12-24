@@ -49,7 +49,7 @@ var survey = {
                      console.log("recieved", res);
                      var newDiv = $("<div>");
                      newDiv.append("<h3>" + res.data.name + "</h3>");
-                     newDiv.append("<img class='img-responsive' src='" + res.data.photo + "' />");
+                     newDiv.append("<img class='img-responsive center-block imgSize' src='" + res.data.photo + "' />");
                      console.log(newDiv);
                      $("#newFriend").append(newDiv);
                      $("#ffModal").modal();                    

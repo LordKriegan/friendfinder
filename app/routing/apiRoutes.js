@@ -15,23 +15,22 @@ router.post("/friends", function(req, res) {
     friendsData.push(newFriend);
 });
 
-function friendFinder(friendsData, newFriend) {
-    var match = [];
+function friendFinder(friends, newFriend) {
     var highScore = 0;
-    friendsData.forEach(function(elem) {//first loop to find high score
+    friends.map(function(elem) {//compare scores with everyone in database
         var newScore = compareScores(elem, newFriend);
-        elem.score = newScore;
+        elem.matchScore = newScore;
         if (newScore > highScore) {
             highScore = newScore;
         }
     });
-    friendsData.forEach(function(elem) {//second loop to find all with matching highscore
-        if (elem.score === highScore) {
-            delete elem.score;//remove score from object cus user doesn't need to know this number
-            match.push(elem);//push friend to matches array if highscore is equal to this matches score
-        }
+    friends = friends.filter(function(elem) {//filter out anyone who isnt a high-scorer, have to set it equal to itself as .filter doesn't modify original array
+        return (elem.matchScore === highScore);
     });
-    return (match.length > 1) ? match[Math.floor(Math.random() * match.length)] : match[0];
+    friends.map(function(elem) {//remove .matchScore property from all results cus user doesnt need to know this
+        delete elem.matchScore;
+    });
+    return (friends.length > 1) ? friends[Math.floor(Math.random() * friends.length)] : friends[0];
 }
 
 function compareScores(friendOne, friendTwo) {
